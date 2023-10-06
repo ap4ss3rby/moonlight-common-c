@@ -130,6 +130,7 @@ typedef struct _SS_TOUCH_PACKET {
     uint8_t zero[1]; // Alignment/reserved
     uint16_t rotation;
     uint32_t pointerId;
+    bool finalEvent;
     netfloat x;
     netfloat y;
     netfloat pressureOrDistance;
