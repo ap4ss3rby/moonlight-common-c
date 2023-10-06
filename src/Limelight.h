@@ -637,7 +637,7 @@ int LiSendMouseMoveAsMousePositionEvent(short deltaX, short deltaY, short refere
 #define LI_TOUCH_EVENT_CANCEL_ALL  0x07
 #define LI_ROT_UNKNOWN 0xFFFF
 int LiSendTouchEvent(uint8_t eventType, uint32_t pointerId, float x, float y, float pressureOrDistance,
-                     float contactAreaMajor, float contactAreaMinor, uint16_t rotation);
+                     float contactAreaMajor, float contactAreaMinor, uint16_t rotation, bool finalEvent);
 
 // This function is similar to LiSendTouchEvent() but allows additional parameters relevant for pen
 // input, including tilt and buttons. Tilt is in degrees from vertical in Z dimension (perpendicular

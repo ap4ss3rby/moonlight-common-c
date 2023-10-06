@@ -1234,7 +1234,7 @@ int LiSendHScrollEvent(signed char scrollClicks) {
 }
 
 int LiSendTouchEvent(uint8_t eventType, uint32_t pointerId, float x, float y, float pressureOrDistance,
-                     float contactAreaMajor, float contactAreaMinor, uint16_t rotation) {
+                     float contactAreaMajor, float contactAreaMinor, uint16_t rotation, bool finalEvent) {
     PPACKET_HOLDER holder;
     int err;
 
@@ -1260,6 +1260,7 @@ int LiSendTouchEvent(uint8_t eventType, uint32_t pointerId, float x, float y, fl
 
     holder->packet.touch.header.size = BE32(sizeof(SS_TOUCH_PACKET) - sizeof(uint32_t));
     holder->packet.touch.header.magic = LE32(SS_TOUCH_MAGIC);
+    holder->packet.touch.finalEvent = finalEvent;
     holder->packet.touch.eventType = eventType;
     holder->packet.touch.pointerId = LE32(pointerId);
     holder->packet.touch.rotation = LE16(rotation);
